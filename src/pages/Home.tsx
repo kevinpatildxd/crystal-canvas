@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, Package, Shield, Truck, Award } from "lucide-react";
 import heroImage from "@/assets/hero-products.jpg";
 import { productCategories } from "@/data/products";
 import { testimonials } from "@/data/testimonials";
@@ -9,89 +9,121 @@ import HeroWaves from "@/components/HeroWaves";
 
 const Home = () => {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-32 overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 opacity-0 animate-fade-up">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm text-muted-foreground">Premium Plastic Packaging</span>
-            </div>
-            
-            {/* Headline */}
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 opacity-0 animate-fade-up animation-delay-200">
-              Innovative{" "}
-              <span className="text-gradient">Packaging</span>
-              <br />
-              Solutions
-            </h1>
-            
-            {/* Subheadline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up animation-delay-400">
-              Leading manufacturer of HDPE bottles, jerry cans, and premium plastic containers. 
-              Quality that protects, designs that impress.
-            </p>
-            
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up animation-delay-600">
-              <Link to="/products" className="btn-liquid group">
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Products
+    <main className="overflow-x-hidden">
+      {/* Hero Section - Split Layout */}
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 lg:pt-0 lg:pb-0">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="relative z-10 text-left">
+              <div className="inline-flex items-center gap-2 border border-primary/30 bg-primary/10 rounded-full px-4 py-1 mb-8 opacity-0 animate-fade-up">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm font-medium text-primary tracking-wide uppercase">Premium Industrial Packaging</span>
+              </div>
+
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8 opacity-0 animate-fade-up animation-delay-200 tracking-tight">
+                Built for <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Resilience.</span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 opacity-0 animate-fade-up animation-delay-400 leading-relaxed">
+                Engineered HDPE solutions for the toughest industries.
+                We deliver precision, durability, and scale for your packaging needs.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 opacity-0 animate-fade-up animation-delay-600">
+                <Link to="/products" className="btn-industrial group flex items-center gap-2">
+                  Explore Catalog
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-              <Link
-                to="/contact"
-                className="px-8 py-4 rounded-2xl font-semibold text-foreground glass-hover flex items-center gap-2"
-              >
-                <Play className="w-4 h-4 text-primary" />
-                Get Quote
-              </Link>
+                </Link>
+                <Link
+                  to="/contact"
+                  className="px-8 py-3 rounded-none border border-primary/20 font-semibold text-primary hover:bg-primary/5 transition-colors flex items-center gap-2"
+                >
+                  <Play className="w-4 h-4 text-primary" />
+                  Request Quote
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual - Abstract/Floating */}
+            <div className="relative lg:h-[80vh] flex items-center justify-center opacity-0 animate-scale-in animation-delay-400">
+              <div className="relative w-full max-w-lg aspect-square">
+                {/* Abstract Shapes */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-3xl animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-primary/5 rounded-full animate-[spin_60s_linear_infinite]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-primary/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
+
+                {/* Main Image Card */}
+                <div className="relative z-10 glass rounded-2xl p-2 rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img
+                    src={heroImage}
+                    alt="Industrial Packaging"
+                    className="rounded-xl w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                  />
+
+                  {/* Floating Badge */}
+                  <div className="absolute -bottom-6 -left-6 glass p-4 rounded-xl border-l-4 border-primary animate-float">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/20 p-2 rounded-lg">
+                        <Shield className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wider">Quality Grade</p>
+                        <p className="font-bold text-foreground">ISO 9001:2015</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        
-        {/* Hero Waves */}
+
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent -z-10" />
         <HeroWaves />
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="glass rounded-3xl p-8 md:p-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { number: "15+", label: "Years Experience" },
-                { number: "500+", label: "Products" },
-                { number: "1000+", label: "Happy Clients" },
-                { number: "50L+", label: "Units Delivered" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <h3 className="font-display text-3xl md:text-4xl font-bold text-gradient mb-2">
-                    {stat.number}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+      {/* Stats Section - Bento Style */}
+      <section className="py-20 relative z-10">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { number: "15+", label: "Years Experience", icon: <Award className="w-6 h-6 text-primary mb-2" /> },
+              { number: "500+", label: "Product SKUs", icon: <Package className="w-6 h-6 text-primary mb-2" /> },
+              { number: "1k+", label: "Active Clients", icon: <Shield className="w-6 h-6 text-primary mb-2" /> },
+              { number: "50L+", label: "Units/Year", icon: <Truck className="w-6 h-6 text-primary mb-2" /> },
+            ].map((stat, index) => (
+              <div key={index} className="bento-item text-center group hover:bg-primary/5">
+                <div className="flex justify-center">{stat.icon}</div>
+                <h3 className="font-display text-4xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {stat.number}
+                </h3>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Product Categories */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Product Range
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Comprehensive solutions for all your packaging needs
-            </p>
+      {/* Product Categories - Bento Grid */}
+      <section className="py-24 bg-secondary/5">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Industrial <span className="text-primary">Catalog</span>
+              </h2>
+              <p className="text-muted-foreground max-w-xl">
+                Precision-engineered containers designed for durability and safety across all sectors.
+              </p>
+            </div>
+            <Link to="/products" className="text-primary hover:text-secondary transition-colors flex items-center gap-2 font-medium">
+              View All Products <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {productCategories.map((category, index) => (
               <CategoryCard key={category.id} category={category} index={index} />
@@ -100,69 +132,59 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Why Choose Us - Split with Glass */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Why Choose{" "}
-                <span className="text-gradient">Shree Radheshyam</span>?
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8">
+                Why Industry Leaders <br />
+                <span className="text-primary">Trust Us</span>
               </h2>
-              <p className="text-muted-foreground mb-8">
-                With over 15 years of excellence in plastic manufacturing, we deliver products that 
-                meet the highest standards of quality and durability.
-              </p>
-              
-              <div className="space-y-4">
+
+              <div className="space-y-6">
                 {[
-                  "ISO Certified Manufacturing",
-                  "Food-Grade Quality Materials",
-                  "Custom Design Solutions",
-                  "Competitive Pricing",
-                  "On-Time Delivery",
-                  "After-Sales Support",
+                  { title: "ISO Certified", desc: "Manufacturing processes adhering to global standards." },
+                  { title: "Food-Grade Materials", desc: "100% virgin HDPE ensuring safety and purity." },
+                  { title: "Rapid Prototyping", desc: "From concept to mold in record time." },
                 ].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 opacity-0 animate-fade-up"
-                    style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards" }}
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{feature}</span>
+                  <div key={index} className="flex gap-4 group">
+                    <div className="w-12 h-12 rounded-none border border-primary/30 bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl text-foreground mb-1">{feature.title}</h3>
+                      <p className="text-muted-foreground">{feature.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
-              
+
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 btn-liquid mt-8"
+                className="inline-flex items-center gap-2 mt-10 text-primary border-b border-primary pb-1 hover:text-secondary transition-colors"
               >
-                Learn More
+                Learn More About Our Process
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            
+
             {/* Decorative Glass Card */}
             <div className="relative">
-              <div className="glass rounded-3xl p-8 aspect-square flex items-center justify-center">
+              <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full" />
+              <div className="glass rounded-none border-l-4 border-primary p-10 relative z-10">
                 <div className="text-center">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 animate-float">
-                    <span className="text-6xl">🏭</span>
+                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-primary to-orange-600 flex items-center justify-center mb-6 shadow-lg rotate-45">
+                    <span className="text-4xl -rotate-45">🏭</span>
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+                  <h3 className="font-display text-3xl font-bold text-foreground mb-2">
                     State-of-the-Art
                   </h3>
-                  <p className="text-muted-foreground">Manufacturing Facility</p>
+                  <p className="text-primary font-medium tracking-widest uppercase mb-6">Manufacturing Facility</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Equipped with the latest blow-molding technology to deliver consistent wall thickness and superior finish.
+                  </p>
                 </div>
-              </div>
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 animate-float" style={{ animationDelay: "-2s" }}>
-                <span className="text-3xl">🧴</span>
-              </div>
-              <div className="absolute -bottom-4 -left-4 glass rounded-2xl p-4 animate-float" style={{ animationDelay: "-4s" }}>
-                <span className="text-3xl">🫙</span>
               </div>
             </div>
           </div>
@@ -170,38 +192,36 @@ const Home = () => {
       </section>
 
       {/* Video Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="glass rounded-3xl p-8 md:p-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
+      <section className="py-24 bg-secondary/5">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="glass rounded-xl p-4 md:p-8 border border-primary/10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  See Our Process
+                  Precision Manufacturing
                 </h2>
-                <p className="text-muted-foreground mb-6">
-                  Watch how we transform raw materials into premium packaging solutions 
-                  with precision and care.
+                <p className="text-muted-foreground mb-8">
+                  Watch how we transform raw high-density polyethylene into premium packaging solutions with automated precision.
                 </p>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary" />
-                    Quality Control
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-accent" />
-                    Modern Equipment
-                  </span>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 border border-primary/10 bg-white">
+                    <h4 className="font-bold text-foreground text-lg">100%</h4>
+                    <p className="text-sm text-muted-foreground">Quality Check</p>
+                  </div>
+                  <div className="p-4 border border-primary/10 bg-white">
+                    <h4 className="font-bold text-foreground text-lg">24/7</h4>
+                    <p className="text-sm text-muted-foreground">Production</p>
+                  </div>
                 </div>
               </div>
-              
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-secondary/50">
-                <img src={heroImage} alt="Our manufacturing process" className="w-full h-full object-cover" />
+
+              <div className="order-1 lg:order-2 relative aspect-video overflow-hidden bg-muted border border-primary/10 group">
+                <img src={heroImage} alt="Manufacturing process" className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-primary-foreground ml-1" />
+                  <button className="w-20 h-20 bg-primary flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(234,88,12,0.5)]">
+                    <Play className="w-8 h-8 text-white ml-1" />
                   </button>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
               </div>
             </div>
           </div>
@@ -209,17 +229,17 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Our Clients Say
+      <section className="py-24">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold text-foreground mb-4">
+              Client <span className="text-primary">Testimonials</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Trusted by businesses across India
+              Trusted by businesses across the nation for reliability and quality.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((testimonial, index) => (
               <div
@@ -235,23 +255,23 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="relative glass rounded-3xl p-12 md:p-16 text-center overflow-hidden">
+      <section className="py-24">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="relative glass rounded-none border-l-8 border-primary p-12 md:p-20 text-center overflow-hidden">
             {/* Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10" />
-            
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
+
             <div className="relative z-10">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Ready to Get Started?
+              <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">
+                Ready to Upgrade?
               </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                Contact us today for a free consultation and quote. Let's create the perfect 
-                packaging solution for your business.
+              <p className="text-muted-foreground max-w-xl mx-auto mb-10 text-lg">
+                Get a custom quote for your bulk packaging needs.
+                We deliver quality that protects your brand.
               </p>
-              <Link to="/contact" className="btn-liquid inline-flex items-center gap-2">
-                Contact Us
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/contact" className="btn-industrial inline-flex items-center gap-2 text-lg px-10 py-4">
+                Start Consultation
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>

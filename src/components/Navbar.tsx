@@ -24,41 +24,35 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "py-6 bg-transparent"
-      }`}
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-5xl rounded-full border border-primary/10 ${scrolled ? "glass py-2 shadow-2xl bg-white/80 backdrop-blur-xl" : "py-3 bg-white/50 backdrop-blur-md"
+        }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow group-hover:scale-105 transition-transform">
-              <span className="text-primary-foreground font-bold text-xl">SR</span>
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+              <span className="text-primary-foreground font-bold text-lg">SR</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-display font-bold text-lg text-foreground">
+              <h1 className="font-display font-bold text-lg text-foreground tracking-tight">
                 Shree Radheshyam
               </h1>
-              <p className="text-xs text-muted-foreground -mt-1">Plast</p>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 bg-secondary/10 rounded-full px-2 py-1 border border-primary/5">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-5 py-2.5 rounded-xl font-medium transition-all duration-300 ${
-                  location.pathname === link.path
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                }`}
+                className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${location.pathname === link.path
+                  ? "text-primary-foreground bg-primary shadow-lg"
+                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                  }`}
               >
                 {link.name}
-                {location.pathname === link.path && (
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
-                )}
               </Link>
             ))}
           </div>
@@ -66,7 +60,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <Link
             to="/contact"
-            className="hidden md:inline-flex btn-liquid text-sm py-2.5 px-6"
+            className="hidden md:inline-flex btn-industrial text-sm py-2 px-6 rounded-full"
           >
             Get Quote
           </Link>
@@ -74,30 +68,29 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl glass"
+            className="md:hidden p-2 rounded-full bg-secondary/10 hover:bg-secondary/20 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-5 h-5 text-foreground" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-5 h-5 text-foreground" />
             )}
           </button>
         </div>
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden mt-4 glass rounded-2xl p-4 animate-fade-up">
+          <div className="md:hidden absolute top-full left-0 right-0 mt-4 glass rounded-3xl p-4 animate-fade-up border border-primary/10 mx-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-xl font-medium transition-all ${
-                  location.pathname === link.path
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                }`}
+                className={`block px-4 py-3 rounded-xl font-medium transition-all ${location.pathname === link.path
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                  }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
@@ -106,7 +99,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="block mt-4 btn-liquid text-center text-sm py-3"
+              className="block mt-4 btn-industrial text-center text-sm py-3 rounded-xl w-full"
             >
               Get Quote
             </Link>

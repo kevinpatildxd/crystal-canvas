@@ -1,72 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Liquid Ocean Color Palette */
-    --background: 200 30% 8%;
-    --foreground: 200 20% 95%;
+    /* Royal Navy & Gold Theme */
+    --background: 60 9% 98%;
+    /* Off-White/Cream #FAFAF9 */
+    --foreground: 224 64% 20%;
+    /* Dark Navy Text */
 
-    --card: 200 30% 12%;
-    --card-foreground: 200 20% 95%;
+    --card: 0 0% 100%;
+    /* White cards */
+    --card-foreground: 224 64% 20%;
 
-    --popover: 200 30% 10%;
-    --popover-foreground: 200 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 64% 20%;
 
-    --primary: 185 70% 50%;
-    --primary-foreground: 200 30% 8%;
+    --primary: 224 64% 33%;
+    /* Royal Navy #1E3A8A */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 25% 18%;
-    --secondary-foreground: 200 20% 90%;
+    --secondary: 41 96% 40%;
+    /* Metallic Gold #CA8A04 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 25% 15%;
-    --muted-foreground: 200 15% 60%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 224 20% 45%;
 
-    --accent: 175 80% 45%;
-    --accent-foreground: 200 30% 8%;
+    --accent: 41 96% 40%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 200 25% 20%;
-    --input: 200 25% 18%;
-    --ring: 185 70% 50%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 64% 33%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
     /* Glass Effects */
-    --glass-bg: 200 30% 15%;
-    --glass-border: 200 30% 30%;
-    --glass-shine: 185 100% 70%;
-    
-    /* Liquid Gradients */
-    --gradient-liquid: linear-gradient(135deg, hsl(185 70% 50% / 0.2), hsl(200 80% 40% / 0.1), hsl(175 80% 45% / 0.15));
-    --gradient-ocean: linear-gradient(180deg, hsl(200 30% 8%) 0%, hsl(200 35% 12%) 50%, hsl(195 40% 15%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(200 30% 20% / 0.6), hsl(200 30% 15% / 0.4));
-    --gradient-shine: linear-gradient(135deg, hsl(185 100% 70% / 0.1) 0%, transparent 50%, hsl(175 80% 60% / 0.05) 100%);
-    --gradient-hero: radial-gradient(ellipse at 30% 20%, hsl(185 70% 50% / 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, hsl(175 80% 45% / 0.1) 0%, transparent 40%);
-    
-    /* Shadows */
-    --shadow-glass: 0 8px 32px hsl(200 50% 5% / 0.4), inset 0 1px 0 hsl(200 30% 40% / 0.2);
-    --shadow-glow: 0 0 40px hsl(185 70% 50% / 0.3);
-    --shadow-liquid: 0 20px 60px hsl(200 50% 5% / 0.5);
+    --glass-bg: 0 0% 100%;
+    --glass-border: 220 13% 91%;
 
-    --sidebar-background: 200 30% 10%;
-    --sidebar-foreground: 200 20% 90%;
-    --sidebar-primary: 185 70% 50%;
-    --sidebar-primary-foreground: 200 30% 8%;
-    --sidebar-accent: 200 25% 18%;
-    --sidebar-accent-foreground: 200 20% 90%;
-    --sidebar-border: 200 25% 20%;
-    --sidebar-ring: 185 70% 50%;
+    /* Gradients */
+    --gradient-industrial: linear-gradient(135deg, hsl(60 9% 98%), hsl(40 20% 96%));
+    --gradient-glow: radial-gradient(circle at center, hsl(41 96% 40% / 0.15), transparent 70%);
   }
 
   .dark {
-    --background: 200 30% 8%;
-    --foreground: 200 20% 95%;
+    --background: 224 64% 15%;
+    --foreground: 60 9% 98%;
+    --card: 224 64% 12%;
+    --card-foreground: 60 9% 98%;
+    --primary: 224 64% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 41 96% 50%;
+    --secondary-foreground: 224 64% 15%;
   }
 }
 
@@ -77,194 +70,75 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background: var(--gradient-ocean);
+    background-image: var(--gradient-industrial);
     min-height: 100vh;
   }
 
-  html {
-    scroll-behavior: smooth;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
   }
 }
 
 @layer components {
+
   /* Glass Card Effect */
   .glass {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(var(--glass-bg) / 0.6), hsl(var(--glass-bg) / 0.3));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--glass-border) / 0.3);
-    box-shadow: var(--shadow-glass);
+    background: rgba(255, 255, 255, 0.7);
+    /* Light glass base */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    /* Subtle navy border */
   }
 
-  .glass::before {
-    content: '';
-    @apply absolute inset-0 pointer-events-none;
-    background: var(--gradient-shine);
-  }
-
-  /* Glass Card Hover */
   .glass-hover {
-    @apply glass transition-all duration-500;
+    @apply glass transition-all duration-300;
   }
 
   .glass-hover:hover {
-    border-color: hsl(var(--primary) / 0.4);
-    box-shadow: var(--shadow-glass), var(--shadow-glow);
+    border-color: hsl(var(--secondary) / 0.5);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Industrial Button */
+  .btn-industrial {
+    @apply relative overflow-hidden px-8 py-3 font-bold transition-all duration-300;
+    background: hsl(var(--primary));
+    color: white;
+    border: none;
+    box-shadow: 4px 4px 0px hsl(var(--secondary));
+    /* Gold shadow */
+  }
+
+  .btn-industrial:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px hsl(var(--secondary));
+  }
+
+  .btn-industrial:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px hsl(var(--secondary));
+  }
+
+  /* Bento Grid Item */
+  .bento-item {
+    @apply glass rounded-xl p-6 transition-all duration-300 border border-primary/10;
+  }
+
+  .bento-item:hover {
+    border-color: hsl(var(--secondary) / 0.5);
     transform: translateY(-4px);
-  }
-
-  /* Liquid Button */
-  .btn-liquid {
-    @apply relative overflow-hidden px-8 py-4 font-semibold rounded-2xl transition-all duration-300;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 4px 20px hsl(var(--primary) / 0.4);
-  }
-
-  .btn-liquid::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
-  }
-
-  .btn-liquid:hover::before {
-    @apply opacity-100;
-  }
-
-  .btn-liquid:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(var(--primary) / 0.5);
-  }
-
-  /* Wave Animation Container */
-  .wave-container {
-    @apply absolute inset-0 overflow-hidden pointer-events-none;
-  }
-
-  /* Liquid Blob */
-  .liquid-blob {
-    @apply absolute rounded-full blur-3xl opacity-30;
-    background: radial-gradient(circle, hsl(var(--primary) / 0.6), transparent 70%);
-    animation: blob-float 20s ease-in-out infinite;
-  }
-
-  /* Text Gradient */
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease infinite;
+    box-shadow: 0 10px 30px -10px rgba(202, 138, 4, 0.2);
   }
 }
 
 @layer utilities {
-  /* Animations */
-  @keyframes blob-float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(20px, -30px) scale(1.1);
-    }
-    50% {
-      transform: translate(-20px, 20px) scale(0.95);
-    }
-    75% {
-      transform: translate(30px, 10px) scale(1.05);
-    }
-  }
-
-  @keyframes wave {
-    0% {
-      transform: translateX(0) translateZ(0) scaleY(1);
-    }
-    50% {
-      transform: translateX(-25%) translateZ(0) scaleY(0.8);
-    }
-    100% {
-      transform: translateX(-50%) translateZ(0) scaleY(1);
-    }
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: scale(1);
-      opacity: 0.5;
-    }
-    100% {
-      transform: scale(2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes shine {
-    0% {
-      transform: translateX(-100%) rotate(45deg);
-    }
-    100% {
-      transform: translateX(100%) rotate(45deg);
-    }
-  }
-
-  @keyframes fade-up {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scale-in {
-    0% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .animate-wave {
-    animation: wave 15s linear infinite;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-ripple {
-    animation: ripple 2s ease-out infinite;
-  }
-
-  .animate-shine {
-    animation: shine 3s ease-in-out infinite;
-  }
-
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
   }
@@ -281,7 +155,27 @@
     animation-delay: 400ms;
   }
 
-  .animation-delay-600 {
-    animation-delay: 600ms;
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
