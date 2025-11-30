@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-5xl rounded-full border border-primary/10 ${scrolled ? "glass py-2 shadow-2xl bg-white/80 backdrop-blur-xl" : "py-3 bg-white/50 backdrop-blur-md"
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-5xl rounded-full border border-primary/10 overflow-visible ${scrolled ? "glass py-2 shadow-2xl bg-white/95 backdrop-blur-xl" : "py-3 bg-white/90 backdrop-blur-lg shadow-sm"
         }`}
     >
       <div className="px-6">
@@ -81,7 +81,7 @@ const Navbar = () => {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 mt-4 glass rounded-3xl p-4 animate-fade-up border border-primary/10 mx-4">
+          <div className="md:hidden absolute top-full left-0 right-0 mt-4 glass rounded-3xl p-4 animate-fade-up border border-primary/10 mx-4 bg-white/95 backdrop-blur-xl shadow-2xl">
             {navLinks.map((link, index) => (
               <Link
                 key={link.path}
