@@ -25,24 +25,24 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Shree Radheshyam Plast was founded with a vision to revolutionize the plastic 
-                  packaging industry in India. Starting as a small manufacturing unit in Ahmedabad, 
+                  Shree Radheshyam Plast was founded with a vision to revolutionize the plastic
+                  packaging industry in India. Starting as a small manufacturing unit in Surat,
                   we have grown into one of the leading suppliers of premium plastic containers.
                 </p>
                 <p>
-                  Our journey has been marked by continuous innovation, unwavering commitment to 
-                  quality, and a customer-first approach. Today, we serve over 1000 clients across 
-                  various industries including pharmaceuticals, chemicals, food & beverages, and 
+                  Our journey has been marked by continuous innovation, unwavering commitment to
+                  quality, and a customer-first approach. Today, we serve over 1000 clients across
+                  various industries including pharmaceuticals, chemicals, food & beverages, and
                   household products.
                 </p>
                 <p>
-                  With state-of-the-art manufacturing facilities and a team of experienced 
-                  professionals, we continue to push the boundaries of what's possible in 
+                  With state-of-the-art manufacturing facilities and a team of experienced
+                  professionals, we continue to push the boundaries of what's possible in
                   plastic packaging.
                 </p>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               {[
                 { icon: Factory, label: "Modern Facility", value: "50,000 sq ft" },
@@ -73,20 +73,20 @@ const About = () => {
               </div>
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To provide innovative, high-quality plastic packaging solutions that meet the 
-                diverse needs of our clients while maintaining the highest standards of 
+                To provide innovative, high-quality plastic packaging solutions that meet the
+                diverse needs of our clients while maintaining the highest standards of
                 manufacturing excellence and customer service.
               </p>
             </div>
-            
+
             <div className="glass-hover rounded-3xl p-8 opacity-0 animate-fade-up animation-delay-200" style={{ animationFillMode: "forwards" }}>
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-6">
                 <Eye className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To become India's most trusted name in plastic packaging by continuously 
-                innovating, expanding our product range, and building lasting relationships 
+                To become India's most trusted name in plastic packaging by continuously
+                innovating, expanding our product range, and building lasting relationships
                 with our valued customers and partners.
               </p>
             </div>
@@ -103,7 +103,7 @@ const About = () => {
               What sets us apart from the competition
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {

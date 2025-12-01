@@ -14,10 +14,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     toast.success("Message sent successfully! We'll get back to you soon.");
     setFormData({ name: "", email: "", phone: "", message: "" });
     setIsSubmitting(false);
@@ -46,7 +46,7 @@ const Contact = () => {
             <h2 className="font-display text-2xl font-bold text-foreground mb-6">
               Send us a Message
             </h2>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -63,7 +63,7 @@ const Contact = () => {
                   placeholder="John Doe"
                 />
               </div>
-              
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -95,7 +95,7 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Message
@@ -111,7 +111,7 @@ const Contact = () => {
                   placeholder="Tell us about your requirements..."
                 />
               </div>
-              
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -139,7 +139,7 @@ const Contact = () => {
               <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                 Quick Contact
               </h2>
-              
+
               <div className="space-y-6">
                 <a
                   href="https://wa.me/919876543210"
@@ -157,7 +157,7 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Chat with us instantly</p>
                   </div>
                 </a>
-                
+
                 <a
                   href="tel:+919876543210"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all group"
@@ -172,7 +172,7 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Call us anytime</p>
                   </div>
                 </a>
-                
+
                 <a
                   href="mailto:info@shreeradheshyamplast.in"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/40 transition-all group"
@@ -195,7 +195,7 @@ const Contact = () => {
               <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                 Visit Us
               </h2>
-              
+
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -204,12 +204,12 @@ const Contact = () => {
                   <p className="font-semibold text-foreground mb-1">Our Factory</p>
                   <p className="text-muted-foreground text-sm">
                     Plot No. 123, Industrial Estate,<br />
-                    Ahmedabad - 380015,<br />
+                    Surat - 380015,<br />
                     Gujarat, India
                   </p>
                 </div>
               </div>
-              
+
               {/* Map Placeholder */}
               <div className="aspect-video rounded-2xl bg-secondary/50 overflow-hidden relative">
                 <div className="absolute inset-0 flex items-center justify-center">
