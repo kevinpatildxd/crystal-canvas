@@ -91,7 +91,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 63548 64920"
                   />
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/916354864920"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-green-500/10 to-green-600/10 border border-green-500/20 hover:border-green-500/40 transition-all group"
@@ -159,7 +159,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+916354864920"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -167,7 +167,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      +91 98765 43210
+                      +91 63548 64920
                     </p>
                     <p className="text-sm text-muted-foreground">Call us anytime</p>
                   </div>

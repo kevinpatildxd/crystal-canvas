@@ -1,3 +1,4 @@
+
 import { Product } from "@/types/product";
 
 interface ProductCardProps {
@@ -6,7 +7,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div className="group glass-hover rounded-3xl p-4 cursor-pointer">
+    <div className="group glass-hover rounded-3xl p-4 cursor-pointer flex flex-col h-full">
       {/* Image Container */}
       <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-secondary/50 to-background mb-4">
         <div className="absolute inset-0 bg-gradient-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -21,9 +22,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         )}
       </div>
-      
+
       {/* Content */}
-      <div className="space-y-1">
+      <div className="space-y-1 flex-grow">
         <h3 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors">
           {product.name}
         </h3>
@@ -32,6 +33,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {product.description}
           </p>
         )}
+      </div>
+
+      {/* Enquiry Button */}
+      <div className="mt-4 pt-2">
+        <a
+          href="https://wa.me/916354864920?text=Hi,%20I%20am%20interested%20in%20this%20product"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full btn-industrial text-sm py-2 px-4 flex items-center justify-center"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Enquiry
+        </a>
       </div>
     </div>
   );
