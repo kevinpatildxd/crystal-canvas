@@ -15,10 +15,15 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Construct Gmail compose link
+    const subject = `Contact Form Submission from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
 
-    toast.success("Message sent successfully! We'll get back to you soon.");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=babycatalyst.kevin@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, '_blank');
+
+    toast.success("Opening Gmail...");
     setFormData({ name: "", email: "", phone: "", message: "" });
     setIsSubmitting(false);
   };
@@ -174,7 +179,9 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="mailto:info@shreeradheshyamplast.in"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=babycatalyst.kevin@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/40 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
@@ -182,7 +189,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      info@shreeradheshyamplast.in
+                      babycatalyst.kevin@gmail.com
                     </p>
                     <p className="text-sm text-muted-foreground">Email us</p>
                   </div>
@@ -210,12 +217,26 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="aspect-video rounded-2xl bg-secondary/50 overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-muted-foreground text-sm">Map View</p>
+              {/* Map Link */}
+              <a
+                href="https://share.google/sdSuZdz2W8Ff2v4lJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aspect-video rounded-2xl bg-secondary/50 overflow-hidden relative group cursor-pointer block"
+              >
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
+                <img
+                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000"
+                  alt="Map Location"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                  <div className="bg-background/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground">View on Google Maps</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Business Hours */}
@@ -235,7 +256,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </main>
+    </main >
   );
 };
 

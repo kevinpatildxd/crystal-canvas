@@ -103,11 +103,13 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="mailto:info@shreeradheshyamplast.in"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=babycatalyst.kevin@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                    info@shreeradheshyamplast.in
+                    babycatalyst.kevin@gmail.com
                   </a>
                 </li>
               </ul>

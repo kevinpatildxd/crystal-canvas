@@ -6,6 +6,7 @@ import { testimonials } from "@/data/testimonials";
 import CategoryCard from "@/components/CategoryCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import HeroWaves from "@/components/HeroWaves";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 const Home = () => {
   return (
@@ -46,36 +47,9 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Visual - Abstract/Floating */}
+            {/* Right Visual - Carousel */}
             <div className="relative lg:h-[80vh] flex items-center justify-center opacity-0 animate-scale-in animation-delay-400">
-              <div className="relative w-full max-w-lg aspect-square">
-                {/* Abstract Shapes */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-3xl animate-pulse" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-primary/5 rounded-full animate-[spin_60s_linear_infinite]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-primary/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-
-                {/* Main Image Card */}
-                <div className="relative z-10 glass rounded-2xl p-2 rotate-3 hover:rotate-0 transition-transform duration-500">
-                  <img
-                    src={heroImage}
-                    alt="Industrial Packaging"
-                    className="rounded-xl w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
-                  />
-
-                  {/* Floating Badge */}
-                  <div className="absolute -bottom-6 -left-6 glass p-4 rounded-xl border-l-4 border-primary animate-float">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-primary/20 p-2 rounded-lg">
-                        <Shield className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">Quality Grade</p>
-                        <p className="font-bold text-foreground">ISO 9001:2015</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <HeroCarousel />
             </div>
           </div>
         </div>
