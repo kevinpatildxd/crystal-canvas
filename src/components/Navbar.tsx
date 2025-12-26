@@ -30,15 +30,12 @@ const Navbar = () => {
       <div className="px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <span className="text-primary-foreground font-bold text-lg">SR</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-display font-bold text-lg text-foreground tracking-tight">
-                Shree Radheshyam
-              </h1>
-            </div>
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Shree Radheshyam Plast"
+              className="h-10 w-auto object-contain" // Adjusted height for better fit
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -56,14 +53,6 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
-          {/* CTA Button */}
-          <Link
-            to="/contact"
-            className="hidden md:inline-flex btn-industrial text-sm py-2 px-6 rounded-full"
-          >
-            Get Quote
-          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -96,13 +85,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block mt-4 btn-industrial text-center text-sm py-3 rounded-xl w-full"
-            >
-              Get Quote
-            </Link>
           </div>
         )}
       </div>

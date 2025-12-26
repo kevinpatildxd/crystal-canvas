@@ -147,7 +147,7 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <a
-                  href="https://wa.me/916354864920"
+                  href="https://wa.me/919978504042"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-green-500/10 to-green-600/10 border border-green-500/20 hover:border-green-500/40 transition-all group"
@@ -164,7 +164,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="tel:+916354864920"
+                  href="tel:+919978504042"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -172,7 +172,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      +91 63548 64920
+                      +91 99785 04042
                     </p>
                     <p className="text-sm text-muted-foreground">Call us anytime</p>
                   </div>
@@ -210,33 +210,26 @@ const Contact = () => {
                 <div>
                   <p className="font-semibold text-foreground mb-1">Our Factory</p>
                   <p className="text-muted-foreground text-sm">
-                    Plot No. 123, Industrial Estate,<br />
-                    Surat - 380015,<br />
-                    Gujarat, India
+                    Ground Floor, 45, Laxmannagar Ind Estate, Kamrej Road, Laskana Navagam, Surat - 394185, Gujarat, India
                   </p>
                 </div>
               </div>
 
               {/* Map Link */}
-              <a
-                href="https://share.google/sdSuZdz2W8Ff2v4lJ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-video rounded-2xl bg-secondary/50 overflow-hidden relative group cursor-pointer block"
-              >
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
-                <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000"
-                  alt="Map Location"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 flex items-center justify-center z-20">
-                  <div className="bg-background/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    <span className="font-semibold text-foreground">View on Google Maps</span>
-                  </div>
-                </div>
-              </a>
+              {/* Map Link */}
+              <div className="aspect-video rounded-2xl bg-secondary/50 overflow-hidden relative border border-border/50">
+                <iframe
+                  src="https://maps.google.com/maps?q=21.2582,72.93977&z=17&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Factory Location"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
             </div>
 
             {/* Business Hours */}

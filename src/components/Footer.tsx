@@ -25,13 +25,11 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xl">SR</span>
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-lg">Shree Radheshyam</h3>
-                  <p className="text-xs text-muted-foreground">Plast</p>
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Shree Radheshyam Plast"
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Leading manufacturer of premium plastic packaging solutions. Quality you can trust, service you deserve.
@@ -89,16 +87,16 @@ const Footer = () => {
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <span className="text-sm text-muted-foreground">
-                    Surat, Gujarat, India
+                    Ground Floor, 45, Laxmannagar Ind Estate, Kamrej Road, Laskana Navagam, Surat - 394185, Gujarat, India
                   </span>
                 </li>
                 <li>
                   <a
-                    href="tel:+916354864920"
+                    href="tel:+919978504042"
                     className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                    +91 63548 64920
+                    +91 99785 04042
                   </a>
                 </li>
                 <li>

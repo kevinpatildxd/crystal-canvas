@@ -74,12 +74,6 @@ const Home = () => {
                 Explore Products
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </Link>
-              <Link
-                to="/contact"
-                className="px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base border-2 border-white font-semibold text-white hover:bg-white hover:text-primary transition-colors backdrop-blur-sm"
-              >
-                Get Quote
-              </Link>
             </div>
           </div>
         </div>
