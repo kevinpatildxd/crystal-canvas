@@ -7,33 +7,24 @@ import {
     CarouselPrevious,
     type CarouselApi,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import heroImage from "@/assets/hero-products.jpg";
+import { products } from "@/data/products";
 
-const images = [
-    {
-        src: heroImage,
-        alt: "Industrial Packaging Solutions",
-        title: "Premium Quality",
-        desc: "ISO 9001:2015 Certified"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=1000&auto=format&fit=crop",
-        alt: "HDPE Bottles",
-        title: "Diverse Range",
-        desc: "Bottles, Jars & Cans"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1605600659908-0ef719419d41?q=80&w=1000&auto=format&fit=crop",
-        alt: "Manufacturing Process",
-        title: "Advanced Tech",
-        desc: "Precision Blow Molding"
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-];
+    return shuffled;
+}
 
 export function HeroCarousel() {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
+
+    // Shuffle products once on component mount
+    const shuffledProducts = React.useMemo(() => shuffleArray(products), []);
 
     React.useEffect(() => {
         if (!api) {
@@ -72,22 +63,23 @@ export function HeroCarousel() {
                 }}
             >
                 <CarouselContent>
-                    {images.map((image, index) => (
-                        <CarouselItem key={index}>
+                    {shuffledProducts.map((product, index) => (
+                        <CarouselItem key={product.id}>
                             <div className="p-1">
                                 <div className="relative aspect-square overflow-hidden rounded-2xl glass p-2 rotate-3 hover:rotate-0 transition-transform duration-500">
                                     <img
-                                        src={image.src}
-                                        alt={image.alt}
-                                        className="rounded-xl w-full h-full object-cover shadow-2xl"
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="rounded-xl w-full h-full object-contain shadow-2xl"
+                                        style={{ backgroundColor: '#1e3b8a' }}
                                     />
 
                                     {/* Floating Badge Overlay */}
                                     <div className="absolute bottom-6 left-6 right-6 glass p-4 rounded-xl border-l-4 border-primary backdrop-blur-md bg-white/30 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                                         <div className="flex items-center justify-between">
                                             <div>
-                                                <p className="text-xs text-primary-foreground/80 uppercase tracking-wider font-semibold">{image.title}</p>
-                                                <p className="font-bold text-foreground">{image.desc}</p>
+                                                <p className="text-xs text-primary-foreground/80 uppercase tracking-wider font-semibold">{product.capacity}</p>
+                                                <p className="font-bold text-foreground">{product.name}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,14 +92,14 @@ export function HeroCarousel() {
                 <CarouselNext className="hidden group-hover:flex -right-4 bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary hover:text-white transition-all" />
             </Carousel>
 
-            {/* Pagination Dots */}
+            {/* Pagination Dots - showing first 10 dots to avoid overflow */}
             <div className="flex justify-center gap-2 mt-8">
-                {images.map((_, index) => (
+                {shuffledProducts.slice(0, 10).map((_, index) => (
                     <button
                         key={index}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current - 1
-                                ? "bg-primary w-6"
-                                : "bg-primary/20 hover:bg-primary/40"
+                            ? "bg-primary w-6"
+                            : "bg-primary/20 hover:bg-primary/40"
                             }`}
                         onClick={() => api?.scrollTo(index)}
                         aria-label={`Go to slide ${index + 1}`}

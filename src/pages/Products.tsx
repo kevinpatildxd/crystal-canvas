@@ -29,7 +29,7 @@ const Products = () => {
             Our <span className="text-gradient">Products</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore our comprehensive range of premium plastic packaging solutions designed 
+            Explore our comprehensive range of premium plastic packaging solutions designed
             for various industries.
           </p>
         </div>
@@ -39,11 +39,10 @@ const Products = () => {
           <div className="flex gap-2 min-w-max">
             <button
               onClick={() => handleCategoryChange("all")}
-              className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all ${
-                activeCategory === "all"
+              className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all ${activeCategory === "all"
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-              }`}
+                }`}
             >
               All Products
             </button>
@@ -51,11 +50,10 @@ const Products = () => {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.slug)}
-                className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all whitespace-nowrap flex items-center gap-2 ${
-                  activeCategory === category.slug
+                className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all whitespace-nowrap flex items-center gap-2 ${activeCategory === category.slug
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                }`}
+                  }`}
               >
                 <span>{category.icon}</span>
                 {category.name}
@@ -93,7 +91,7 @@ const Products = () => {
               className="opacity-0 animate-fade-up"
               style={{ animationDelay: `${index * 50}ms`, animationFillMode: "forwards" }}
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} index={index} />
             </div>
           ))}
         </div>

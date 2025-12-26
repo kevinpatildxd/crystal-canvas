@@ -3,13 +3,14 @@ import { Product } from "@/types/product";
 
 interface ProductCardProps {
   product: Product;
+  index?: number;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   return (
     <div className="group glass-hover rounded-3xl p-4 cursor-pointer flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 mb-4">
+      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4" style={{ backgroundColor: '#1e3b8a' }}>
         <div className="absolute inset-0 bg-gradient-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
         <img
           src={product.image}
@@ -55,3 +56,4 @@ const ProductCard = ({ product }: ProductCardProps) => {
 };
 
 export default ProductCard;
+
