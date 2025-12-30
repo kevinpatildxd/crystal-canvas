@@ -7,24 +7,32 @@ import {
     CarouselPrevious,
     type CarouselApi,
 } from "@/components/ui/carousel";
-import { products } from "@/data/products";
 
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
+// Hero slides with fullscreen HDPE product banners
+const heroSlides = [
+    {
+        id: "hero-1",
+        image: "/hero_slide_1.png",
+        title: "Premium HDPE Packaging Solutions",
+        subtitle: "High-Quality Bottles, Jars & Cans for Every Industry",
+    },
+    {
+        id: "hero-2",
+        image: "/hero_slide_2.png",
+        title: "Custom Color Options",
+        subtitle: "Available in Blue, Yellow & White",
+    },
+    {
+        id: "hero-3",
+        image: "/hero_slide_3.png",
+        title: "Complete Packaging Collection",
+        subtitle: "Detergent, Pump & Spray Bottles",
+    },
+];
 
 export function HeroCarousel() {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
-
-    // Shuffle products once on component mount
-    const shuffledProducts = React.useMemo(() => shuffleArray(products), []);
 
     React.useEffect(() => {
         if (!api) {
@@ -38,22 +46,19 @@ export function HeroCarousel() {
         });
     }, [api]);
 
-    // Auto-play effect
+    // Auto-play effect - 5 second interval
     React.useEffect(() => {
         if (!api) return;
 
         const intervalId = setInterval(() => {
             api.scrollNext();
-        }, 4000);
+        }, 5000);
 
         return () => clearInterval(intervalId);
     }, [api]);
 
     return (
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto relative group px-2 sm:px-0">
-            {/* Abstract Shapes Background - kept from original design */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-3xl animate-pulse -z-10" />
-
+        <div className="w-full relative group">
             <Carousel
                 setApi={setApi}
                 className="w-full"
@@ -63,23 +68,42 @@ export function HeroCarousel() {
                 }}
             >
                 <CarouselContent>
-                    {shuffledProducts.map((product, index) => (
-                        <CarouselItem key={product.id}>
-                            <div className="p-1">
-                                <div className="relative aspect-square overflow-hidden rounded-xl sm:rounded-2xl glass p-1 sm:p-2 sm:rotate-3 sm:hover:rotate-0 transition-transform duration-500">
-                                    <img
-                                        src={product.image}
-                                        alt={product.name}
-                                        className="rounded-lg sm:rounded-xl w-full h-full object-contain shadow-2xl"
-                                        style={{ backgroundColor: '#1e3b8a' }}
-                                    />
+                    {heroSlides.map((slide) => (
+                        <CarouselItem key={slide.id}>
+                            <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
+                                {/* Background Image */}
+                                <img
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    className="absolute inset-0 w-full h-full object-cover object-center"
+                                />
 
-                                    {/* Floating Badge Overlay - always visible on mobile */}
-                                    <div className="absolute bottom-2 sm:bottom-6 left-2 sm:left-6 right-2 sm:right-6 glass p-2 sm:p-4 rounded-lg sm:rounded-xl border-l-4 border-primary backdrop-blur-md bg-white/30 transition-all duration-300 sm:transform sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                                        <div className="flex items-center justify-between">
-                                            <div>
-                                                <p className="text-[10px] sm:text-xs text-primary-foreground/80 uppercase tracking-wider font-semibold">{product.capacity}</p>
-                                                <p className="text-sm sm:text-base font-bold text-foreground">{product.name}</p>
+                                {/* Gradient Overlay for text readability */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+
+                                {/* Text Content Overlay */}
+                                <div className="absolute inset-0 flex items-center">
+                                    <div className="container mx-auto px-6 sm:px-8 lg:px-16">
+                                        <div className="max-w-2xl">
+                                            <p className="text-primary text-sm sm:text-base md:text-lg font-semibold uppercase tracking-wider mb-2 sm:mb-4 animate-fade-in">
+                                                {slide.subtitle}
+                                            </p>
+                                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
+                                                {slide.title}
+                                            </h1>
+                                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                                <a
+                                                    href="/products"
+                                                    className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                                                >
+                                                    Explore Products
+                                                </a>
+                                                <a
+                                                    href="/contact"
+                                                    className="inline-flex items-center justify-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/30 hover:bg-white/20 transition-all duration-300"
+                                                >
+                                                    Contact Us
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -88,18 +112,20 @@ export function HeroCarousel() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="hidden sm:group-hover:flex -left-2 sm:-left-4 bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary hover:text-white transition-all h-8 w-8 sm:h-10 sm:w-10" />
-                <CarouselNext className="hidden sm:group-hover:flex -right-2 sm:-right-4 bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary hover:text-white transition-all h-8 w-8 sm:h-10 sm:w-10" />
+
+                {/* Navigation Arrows */}
+                <CarouselPrevious className="left-4 sm:left-8 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white transition-all h-10 w-10 sm:h-12 sm:w-12" />
+                <CarouselNext className="right-4 sm:right-8 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white transition-all h-10 w-10 sm:h-12 sm:w-12" />
             </Carousel>
 
-            {/* Pagination Dots - showing first 10 dots to avoid overflow */}
-            <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-8">
-                {shuffledProducts.slice(0, 10).map((_, index) => (
+            {/* Pagination Dots */}
+            <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 sm:gap-3">
+                {heroSlides.map((_, index) => (
                     <button
                         key={index}
-                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${index === current - 1
-                            ? "bg-primary w-4 sm:w-6"
-                            : "bg-primary/20 hover:bg-primary/40"
+                        className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${index === current - 1
+                                ? "bg-primary w-6 sm:w-8"
+                                : "bg-white/50 hover:bg-white/70 w-2 sm:w-3"
                             }`}
                         onClick={() => api?.scrollTo(index)}
                         aria-label={`Go to slide ${index + 1}`}

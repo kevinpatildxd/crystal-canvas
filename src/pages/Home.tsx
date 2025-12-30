@@ -39,13 +39,13 @@ const Home = () => {
         {heroBanners.map((banner, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-opacity duration-1000 bg-gradient-to-r from-[#0a1628] via-[#1a365d] to-[#92400e] ${index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
           >
             <img
               src={banner}
               alt={`Hero Banner ${index + 1}`}
-              className="w-full h-full object-cover object-center sm:object-bottom"
+              className="w-full h-full object-cover object-center"
             />
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent sm:from-black/60 sm:via-black/30" />

@@ -19,7 +19,7 @@ const Contact = () => {
     const subject = `Contact Form Submission from ${formData.name}`;
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=babycatalyst.kevin@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=srplast.surat@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.open(gmailUrl, '_blank');
 
@@ -179,7 +179,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=babycatalyst.kevin@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=srplast.surat@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/40 transition-all group"
@@ -189,7 +189,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      babycatalyst.kevin@gmail.com
+                      srplast.surat@gmail.com
                     </p>
                     <p className="text-sm text-muted-foreground">Email us</p>
                   </div>
