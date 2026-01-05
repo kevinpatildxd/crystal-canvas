@@ -39,7 +39,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       {/* Enquiry Button */}
       <div className="mt-4 pt-2">
         <a
-          href={`https://wa.me/916354864920?text=${encodeURIComponent(
+          href={`https://wa.me/919978504042?text=${encodeURIComponent(
             `Hi, I am interested in this product: ${product.name}${product.capacity ? ` (${product.capacity})` : ""
             }`
           )}`}
